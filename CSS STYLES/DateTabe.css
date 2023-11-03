@@ -1,0 +1,32 @@
+.datetab {
+  display: flex;
+  gap: 1rem;
+  width: 80%;
+}
+
+.datetab h1 {
+  color: var(--Smokey-grey);
+}
+.datetab input {
+  height: 3rem;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin-top: 0.7rem;
+  outline: none;
+  border: 1px solid var(--Light-grey);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.datetab input:hover {
+  border-color: var(--Purple);
+}
+
+.alertBorder {
+  border-color: var(--Light-red);
+}
+
+.alertText {
+  color: var(--Light-red);
+  font-weight: bold;
+}

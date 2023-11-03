@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Age calculator app</title>
+    <link rel="stylesheet" href="/CSS STYLES/general.css" />
+    <link rel="stylesheet" href="/CSS STYLES/DateTabe.css" />
+    <link rel="stylesheet" href="/CSS STYLES/content.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;700&family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  </head>
+  <body>
+    <!-- Day DD Month MM Year YYYY -- years -- months -- days -->
+
+    <main>
+      <div class="container">
+        <div class="datetab">
+          <div class="day">
+            <h1 class="h">DAY</h1>
+            <input placeholder="DD" type="number" class="input--1" />
+            <p class="alertText alertText--1"></p>
+          </div>
+          <div class="month">
+            <h1 class="h">MONTH</h1>
+            <input placeholder="MM" type="number" class="input--2" />
+            <p class="alertText alertText--2"></p>
+          </div>
+          <div class="year">
+            <h1 class="h">YEAR</h1>
+            <input placeholder="YYYY" type="number" class="input--3" />
+            <p class="alertText alertText--3"></p>
+          </div>
+        </div>
+
+        <div class="horizontal-line">
+          <div class="line"></div>
+          <img
+            src="/age-calculator-app-main/assets/images/icon-arrow.svg"
+            alt="icon-arrow"
+            class="enter"
+          />
+        </div>
+        <!-- COntainer content -->
+        <div class="displayInfor">
+          <h2><span class="num-3">- -</span> years</h2>
+          <h2><span class="num-2">- -</span> months</h2>
+          <h2><span class="num-1">- -</span> days</h2>
+        </div>
+      </div>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Oyasi Kelly</a>.
+    </div>
+    <script src="/main.js"></script>
+  </body>
+</html>
