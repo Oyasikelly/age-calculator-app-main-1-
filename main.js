@@ -105,63 +105,74 @@ Enter.addEventListener("click", (e) => {
       this.date = date;
       this.month = month;
       this.year = year;
+
+      this.calcDays();
+      this.calcMonth();
+      this.calcYear();
+      this.validity();
+    }
+
+    validity() {
+      if (!inputDay.value || !inputmonth.value || !inputyear.value) {
+        span1.innerHTML = "- -";
+        span2.innerHTML = "- -";
+        span3.innerHTML = "- -";
+        const alertText = document.querySelectorAll(".alertText");
+        alertText.forEach((e) => {
+          e.innerHTML = "This Field is Required";
+          e.classList.add("alertText");
+          header.forEach((e) => {
+            e.style.color = "hsl(0, 100%, 67%)";
+          });
+          setTimeout(() => {
+            e.innerHTML = "";
+            header.forEach((e) => {
+              e.style.color = "hsl(0, 1%, 44%)";
+            });
+          }, 1500);
+        });
+      }
+
+      const allPositive = (...inputs) => inputs.every((inp) => inp > 0);
+
+      if (!allPositive(this.date, this.month, this.year)) {
+        span1.innerHTML = "- -";
+        span2.innerHTML = "- -";
+        span3.innerHTML = "- -";
+      }
+      if (
+        inputDay.value > 31 ||
+        inputmonth.value > 12 ||
+        inputyear.value > 2023
+      ) {
+        span1.innerHTML = "- -";
+        span2.innerHTML = "- -";
+        span3.innerHTML = "- -";
+      }
+    }
+
+    calcDays() {
+      const varyDay = 31;
+      if (varyDay) {
+        const day = varyDay - this.date;
+        span1.innerHTML = day;
+      }
+    }
+
+    calcMonth() {
+      const month = 12 - this.month;
+      span2.innerHTML = month;
+    }
+
+    calcYear() {
+      const year = 2023 - this.year;
+      span3.innerHTML = year;
     }
   }
-  const data = new cal(
-    parseInt(inputDay.value),
-    parseInt(inputmonth.value),
-    parseInt(inputyear.value)
-  );
-
-  cal.prototype.GetDay = function () {
-    const varyDay = 31;
-    if (varyDay) {
-      const day = varyDay - this.date;
-      span1.innerHTML = day;
-    }
-  };
-  cal.prototype.GetMonth = function () {
-    const month = 12 - this.month;
-    span2.innerHTML = month;
-  };
-  cal.prototype.GetYear = function () {
-    const year = 2023 - this.year;
-    span3.innerHTML = year;
-  };
-  data.GetDay();
-  data.GetMonth();
-  data.GetYear();
+  const data = new cal(+inputDay.value, +inputmonth.value, +inputyear.value);
+  // console.log(data);
   // -------------------METHOD ! END--------------------------
 
-  if (!inputDay.value || !inputmonth.value || !inputyear.value) {
-    span1.innerHTML = "- -";
-    span2.innerHTML = "- -";
-    span3.innerHTML = "- -";
-    const alertText = document.querySelectorAll(".alertText");
-    alertText.forEach((e) => {
-      e.innerHTML = "This Field is Required";
-      e.classList.add("alertText");
-      header.forEach((e) => {
-        e.style.color = "hsl(0, 100%, 67%)";
-      });
-      setTimeout(() => {
-        e.innerHTML = "";
-        header.forEach((e) => {
-          e.style.color = "hsl(0, 1%, 44%)";
-        });
-      }, 1500);
-    });
-  }
-  if (inputDay.value <= 0 || inputmonth.value <= 0 || inputyear.value <= 0) {
-    span1.innerHTML = "- -";
-    span2.innerHTML = "- -";
-    span3.innerHTML = "- -";
-  }
-  if (inputDay.value > 31 || inputmonth.value > 12 || inputyear.value > 2023) {
-    span1.innerHTML = "- -";
-    span2.innerHTML = "- -";
-    span3.innerHTML = "- -";
-  }
   // -----------------METHOD 2 START------------------------
   // if (isvalid) {
   //   let birthday = `${inputDay.value} ${inputmonth.value} ${inputyear.value}`;
